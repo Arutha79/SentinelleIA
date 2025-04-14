@@ -1,0 +1,35 @@
+openapi: 3.0.0
+info:
+  title: API SentinelleIA
+  version: 1.0.0
+servers:
+  - url: https://sentinelleia-production.up.railway.app
+paths:
+  /action:
+    post:
+      summary: Action principale de SentinelleIA
+      operationId: actionSentinelleIA
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                intention:
+                  type: string
+                contenu:
+                  type: string
+              required:
+                - intention
+                - contenu
+      responses:
+        '200':
+          description: Succès
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
